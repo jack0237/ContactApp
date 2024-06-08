@@ -14,6 +14,7 @@ public:
     void addContact(std::string name, std::string phoneNumber);
     void displayContacts() const;
     void deleteContact(std::string name);
+    std::vector<Contact> searchContactsByName(std::string name) const;
 };
 
 #endif // ADDRESSBOOK_H

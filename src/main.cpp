@@ -2,12 +2,20 @@
 #include <iostream>
 
 void displayMenu() {
-    std::cout << "\n--- Carnet d'Adresses ---\n";
-    std::cout << "1. Ajouter un contact\n";
-    std::cout << "2. Afficher les contacts\n";
-    std::cout << "3. Supprimer un contact\n";
-    std::cout << "4. Quitter\n";
-    std::cout << "Choisissez une option: ";
+    std::cout << "\n--- Contact list  ---\n";
+    std::cout << "1. Add a number\n";
+    std::cout << "2. List contacts\n";
+    std::cout << "3. Search for a Contact\n";
+    std::cout << "4. delete a number \n";
+    std::cout << "5. Exit\n";
+    std::cout << "Choose an option: ";
+}
+
+void displayContacts(const std::vector<Contact>& contacts) {
+    std::cout << "Search result:" << std::endl;
+    for (const auto& contact : contacts) {
+        std::cout << "Name: " << contact.name << ", Phone number: " << contact.phoneNumber << std::endl;
+    }
 }
 
 int main() {
@@ -21,9 +29,9 @@ int main() {
 
         switch (choice) {
         case 1:
-            std::cout << "Entrez le nom: ";
+            std::cout << "Enter the name: ";
             std::cin >> name;
-            std::cout << "Entrez le numéro de téléphone: ";
+            std::cout << "Enter the phone number: ";
             std::cin >> phoneNumber;
             addressBook.addContact(name, phoneNumber);
             break;
@@ -31,15 +39,20 @@ int main() {
             addressBook.displayContacts();
             break;
         case 3:
-            std::cout << "Entrez le nom du contact à supprimer: ";
+            std::cout << "Enter the contact name: ";
+            std::cin >> name;
+            displayContacts(addressBook.searchContactsByName(name));
+            break;
+        case 4:
+            std::cout << "Enter the persons name to be deleted: ";
             std::cin >> name;
             addressBook.deleteContact(name);
             break;
-        case 4:
-            std::cout << "Au revoir!" << std::endl;
+        case 5:
+            std::cout << "bye!" << std::endl;
             return 0;
         default:
-            std::cout << "Option invalide. Veuillez réessayer." << std::endl;
+            std::cout << "Invalid option verify your choice." << std::endl;
         }
     }
     return 0;
