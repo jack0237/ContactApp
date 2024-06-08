@@ -1,0 +1,3 @@
+C:/Users/ngjas/Documents/GitHub/ContactApp/build/CMakeFiles/ContactApp.dir
+C:/Users/ngjas/Documents/GitHub/ContactApp/build/CMakeFiles/edit_cache.dir
+C:/Users/ngjas/Documents/GitHub/ContactApp/build/CMakeFiles/rebuild_cache.dir
